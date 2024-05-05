@@ -55,7 +55,7 @@ const getAllBooksHandler = (request, h) => {
 
     let filteredBooks = [...books];
 
-    // Filter buku berdasarkan nama non-case sensitive
+    // Filter ?name (non-case sensitive)
     if (query.name) {
         const searchName = query.name.toLowerCase();
         filteredBooks = filteredBooks.filter((book) =>
@@ -63,7 +63,7 @@ const getAllBooksHandler = (request, h) => {
         );
     }
 
-    // Filter buku berdasarkan status reading
+    // Filter ?reading
     if (query.reading === '0' || query.reading === '1') {
         const readingValue = query.reading === '1';
         filteredBooks = filteredBooks.filter(
@@ -71,7 +71,7 @@ const getAllBooksHandler = (request, h) => {
         );
     }
 
-    // Filter buku berdasarkan status finished
+    // Filter ?finished
     if (query.finished === '0' || query.finished === '1') {
         const finishedValue = query.finished === '1';
         filteredBooks = filteredBooks.filter(
